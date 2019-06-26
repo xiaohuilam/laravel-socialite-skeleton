@@ -18,6 +18,9 @@
             "Xiaohuilam\\Laravel\\SocialiteSkeleton\\": "src/"
         }
     },
+    "suggest": {
+        "laravel/socialite": "To process oauth login for Laravel applications."
+    },
     "extra": {
         "laravel": {
             "providers": [

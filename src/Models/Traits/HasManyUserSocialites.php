@@ -20,7 +20,7 @@ trait HasManyUserSocialites
 
     public function bindSocialite($userSocialite)
     {
-        if (!$userSocialite instanceof UserSocialite) {
+        if (!is_object($userSocialite) || !$userSocialite instanceof UserSocialite) {
             $userSocialite = new UserSocialite($userSocialite);
         }
         $userSocialite->user()->associate($this);

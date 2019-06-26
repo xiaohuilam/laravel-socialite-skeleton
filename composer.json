@@ -24,7 +24,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "XiaohuiLam\\Laravel\\SocialiteSkeleton\\SocialiteSkeletonServiceProvider"
+                "Xiaohuilam\\Laravel\\SocialiteSkeleton\\SocialiteSkeletonServiceProvider"
             ]
         }
     }

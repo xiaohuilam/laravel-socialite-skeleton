@@ -24,6 +24,10 @@ trait HasManyUserSocialites
             $userSocialite = new UserSocialite($userSocialite);
         }
         $userSocialite->user()->associate($this);
-        $userSocialite->save();
+
+        if (!UserSocialite::where(['account' => $userSocialite->account, 'type' => $userSocialite->type, 'user_id' => $userSocialite->user_id,])->first()) {
+            $userSocialite->save();
+        }
+        return $userSocialite;
     }
 }

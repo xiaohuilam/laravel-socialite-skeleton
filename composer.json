@@ -1,0 +1,28 @@
+{
+    "name": "xiaohuilam/laravel-socialite-skeleton",
+    "description": "Laravel to support multiple socialization login implment scheleton",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "xiaohui.lam",
+            "email": "xiaohui.lam@icloud.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Xiaohuilam\\Laravel\\SocialiteSkeleton\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "XiaohuiLam\\Laravel\\SocialiteSkeleton\\SocialiteSkeletonServiceProvider"
+            ]
+        }
+    }
+}

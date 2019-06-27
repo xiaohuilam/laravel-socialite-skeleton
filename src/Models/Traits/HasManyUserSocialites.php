@@ -11,6 +11,8 @@ use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\AccountAlreadyBindedExceptio
  */
 trait HasManyUserSocialites
 {
+    abstract public function getAuthIdentifierName();
+
     /**
      * 用户绑定关系
      *

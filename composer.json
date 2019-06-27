@@ -16,7 +16,10 @@
     "autoload": {
         "psr-4": {
             "Xiaohuilam\\Laravel\\SocialiteSkeleton\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "suggest": {
         "laravel/socialite": "To process oauth login for Laravel applications."

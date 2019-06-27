@@ -2,6 +2,9 @@
 namespace Xiaohuilam\Laravel\SocialiteSkeleton\Models\Traits;
 
 use Xiaohuilam\Laravel\SocialiteSkeleton\Models\UserSocialite;
+use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\InvalidTypeException;
+use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\DuplicateBindingsException;
+use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\AccountAlreadyBindedException;
 
 /**
  * @method \Illuminate\Database\Eloquent\Relations\HasMany hasMany($related, $foreignKey, $localKey)
@@ -25,9 +28,17 @@ trait HasManyUserSocialites
         }
         $userSocialite->user()->associate($this);
 
-        if (!UserSocialite::where(['account' => $userSocialite->account, 'type' => $userSocialite->type, 'user_id' => $userSocialite->user_id,])->first()) {
-            $userSocialite->save();
+        if (!collect(config('laravel-socialite-skeleton.types'))->contains($userSocialite->type)) {
+            throw new InvalidTypeException();
         }
+        if (!config('laravel-socialite-skeleton.allow_duplicate') && UserSocialite::where(['type' => $userSocialite->type, 'user_id' => $userSocialite->user_id,])->first()) {
+            throw new DuplicateBindingsException();
+        }
+        if (UserSocialite::where(['type' => $userSocialite->type, 'account' => $userSocialite->account,])->first()) {
+            throw new AccountAlreadyBindedException();
+        }
+
+        $userSocialite->save();
         return $userSocialite;
     }
 }

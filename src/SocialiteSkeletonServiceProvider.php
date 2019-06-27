@@ -30,7 +30,7 @@ class SocialiteSkeletonServiceProvider extends ServiceProvider
             return;
         }
 
-        $this->publish([
+        $this->publishes([
             $path => config_path($key . '.php'),
         ], $key);
     }

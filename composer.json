@@ -1,6 +1,6 @@
 {
     "name": "xiaohuilam/laravel-socialite-skeleton",
-    "description": "Laravel to support multiple socialization login implment scheleton",
+    "description": "Laravel to support multiple socialization binding implement scheleton",
     "type": "library",
     "license": "MIT",
     "authors": [

@@ -7,6 +7,7 @@ use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\DuplicateBindingsException;
 use Xiaohuilam\Laravel\SocialiteSkeleton\Exceptions\AccountAlreadyBindedException;
 
 /**
+ * @property-read UserSocialite[]|\Illuminate\Database\Eloquent\Collection $userSocialites
  * @method \Illuminate\Database\Eloquent\Relations\HasMany hasMany($related, $foreignKey, $localKey)
  */
 trait HasManyUserSocialites
